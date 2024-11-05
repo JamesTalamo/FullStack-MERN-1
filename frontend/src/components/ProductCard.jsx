@@ -51,11 +51,7 @@ let ProductCard = ({ product }) => {
         }
     }
 
-    let [update, setUpdate] = useState({
-        name: '',
-        price: '',
-        image: ''
-    })
+    let [update, setUpdate] = useState(product)
 
     let handleUpdate = async (productId) => {
         // console.log('Updating ', productId)
@@ -136,9 +132,9 @@ let ProductCard = ({ product }) => {
 
                     <ModalBody>
                         <VStack spacing={4} pb={10}>
-                            <Input placeholder='Product Name' name='name' value={update.name} onChange={(e) => setUpdate({ ...update, name: e.target.value })} />
+                            <Input placeholder='Product Name' name='name' value={update.name} onChange={(e) => setUpdate({ ...update, name: e.target.value })}/>
 
-                            <Input placeholder='Product Price' name='price' value={update.price} onChange={(e) => setUpdate({ ...update, price: e.target.value })} />
+                            <Input placeholder='Product Price' name='price' value={update.price} onChange={(e) => setUpdate({ ...update, price: e.target.value })}/>
 
                             <Input placeholder='Product url' name='image' value={update.image} onChange={(e) => setUpdate({ ...update, image: e.target.value })} />
                         </VStack>
